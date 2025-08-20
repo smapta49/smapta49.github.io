@@ -3,214 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="SMAPTA - Sekolah Unggulan dengan Pendidikan Berkualitas untuk Masa Depan Gemilang">
-    <meta name="keywords" content="SMAPTA, sekolah unggulan, pendidikan, penerimaan siswa baru, sekolah berkualitas, Cianjur">
-    <meta name="author" content="SMAPTA">
-    <title>SMAPTA | Pendidikan Berkualitas untuk Generasi Emas</title>
-    <!-- Google Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Favicon -->
-    <link rel="icon" href="https://smapgritakakokak.sch.id/spmb/assets/img/icons/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="https://smapgritakakokak.sch.id/spmb/assets/img/icons/apple-touch-icon.png">
+    <title>SMAPTA - Sekolah Mandiri, Islami, Legitimasi, dan Edukatif</title>
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {
-                            500: '#2563eb',
-                            600: '#1e40af'
-                        },
-                        secondary: {
-                            500: '#f59e0b',
-                            600: '#d97706'
-                        }
-                    },
-                    fontFamily: {
-                        'google-sans': ['Google Sans', 'sans-serif'],
-                        'roboto': ['Roboto', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" href="https://smapgritakakokak.sch.id/spmb/assets/img/icons/apple-touch-icon.png">
+
+    <!-- Google Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <style>
+        /* Menggunakan font Inter sebagai font utama */
         body {
-            font-family: 'Google Sans', 'Roboto', sans-serif;
-            background-color: #f8fafc;
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-        .header-bg {
-            background: linear-gradient(135deg, #2563eb, #1e40af);
-            background-size: cover;
-            background-position: center;
+
+        /* Latar belakang gradien animasi */
+        .animated-gradient {
+            background: linear-gradient(-45deg, #6e8efb, #a777e3, #e73c7e, #23a6d5);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
         }
-        .link-card {
-            transition: all 0.2s ease;
-            will-change: transform;
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
-        .link-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+        /* Efek Kaca Buram (Glassmorphism) */
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
-        .info-card {
-            transition: all 0.3s ease;
-            will-change: transform;
+
+        /* Transisi halus untuk semua elemen */
+        .smooth-transition {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .info-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+        /* Efek hover untuk tombol tautan utama */
+        .link-button .link-text {
+             color: #ffffff;
         }
-        .floating-btn {
-            position: fixed;
-            bottom: 1rem;
-            right: 1rem;
-            z-index: 50;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        
+        .link-button:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 1);
         }
-        .pulse-animation {
-            animation: pulse 2s infinite;
+
+        .link-button:hover .link-text,
+        .link-button:hover .link-subtext {
+            color: #1f2937; /* dark gray */
         }
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.8; }
-            100% { opacity: 1; }
+
+        .link-button:hover .material-icons-round {
+            color: #4f46e5; /* indigo */
+        }
+
+        /* Efek hover untuk tombol sosial */
+        .social-button:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Animasi fade-in saat halaman dimuat */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.7s ease-out forwards;
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col">
-    <!-- Header Section -->
-    <header class="header-bg py-8 text-center text-white">
-        <div class="container mx-auto px-4">
-            <!-- Logo -->
-            <div class="w-20 h-20 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                <span class="material-icons text-3xl">school</span>
-            </div>
-            <h1 class="text-3xl font-bold mb-2">SMAPTA</h1>
-            <p class="text-lg opacity-90">Menyiapkan Generasi Emas Indonesia</p>
-        </div>
-    </header>
+<body class="animated-gradient min-h-screen flex items-center justify-center p-4">
 
-    <!-- Main Content -->
-    <main class="flex-grow container mx-auto px-4 py-6 max-w-md">
-        <!-- Pengumuman -->
-        <div class="bg-gradient-to-r from-secondary-500 to-secondary-600 rounded-xl shadow-md p-4 mb-6 text-center text-white pulse-animation">
-            <p class="font-bold">📢 PENDATAAN PESERTA DIDIK 📢</p>
-            <p class="text-sm mt-1">Progres Pendataan | dimulai pada: 21/07/2025</p>
-        </div>
+    <main class="w-full max-w-lg mx-auto">
+        <!-- Kontainer Utama dengan Efek Kaca -->
+        <div class="glass-effect rounded-3xl p-6 sm:p-8 text-white shadow-2xl">
 
-        <!-- Sistem Manajemen Informasi -->
-        <div class="mb-8" id="akademik">
-            <h2 class="text-xl font-bold text-gray-800 mb-3 text-center">Sistem Manajemen Informasi</h2>
-            <div class="space-y-3">
-                <a href="https://script.google.com/macros/s/AKfycbx1hWaRhNVgFZPsU-bx7NrJXdUsub0IOaqvHnEFbbtFpQp15PgitoRVVMRQpCKptQWa/exec" 
-                   class="info-card bg-white rounded-lg p-4 shadow-md block hover:bg-blue-50"
-                   aria-label="DAPODIK Apps - Verifikasi & Validasi Peserta Didik">
-                    <div class="flex items-center">
-                        <div class="bg-blue-100 rounded-md w-12 h-12 flex items-center justify-center mr-3">
-                            <span class="material-icons text-blue-500">event</span>
-                        </div>
-                        <div>
-                            <h3 class="font-medium">DAPODIK Apps</h3>
-                            <p class="text-sm text-gray-600">Verifikasi & Validasi Peserta Didik</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://script.google.com/macros/s/AKfycbyVj7RaGUBekBz3X5kaTMdDcIjkAly9BOkhb1sTkfe0vJzQCO9dBT4UHFAq9bpZlY1v/exec" 
-                   class="info-card bg-white rounded-lg p-4 shadow-md block hover:bg-green-50"
-                   aria-label="LMS Pintar">
-                    <div class="flex items-center">
-                        <div class="bg-green-100 rounded-md w-12 h-12 flex items-center justify-center mr-3">
-                            <span class="material-icons text-green-500">assignment</span>
-                        </div>
-                        <div>
-                            <h3 class="font-medium">LMS Pintar</h3>
-                            <p class="text-sm text-gray-600">Learning Management System</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://script.google.com/macros/s/AKfycbycX0uayjix9qX0ZeUbBi_Qr0Ch4cGP-VELx8RTftn9ctXURwIPh4Eqv2Omida1qDiC/exec" 
-                   class="info-card bg-white rounded-lg p-4 shadow-md block hover:bg-purple-50"
-                   aria-label="Koding & Kecerdasan Artifisial">
-                    <div class="flex items-center">
-                        <div class="bg-purple-100 rounded-md w-12 h-12 flex items-center justify-center mr-3">
-                            <span class="material-icons text-purple-500">library_books</span>
-                        </div>
-                        <div>
-                            <h3 class="font-medium">Koding & Kecerdasan Artifisial</h3>
-                            <p class="text-sm text-gray-600">Bahan Ajar Koding & Kecerdasan Artifisial</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://script.google.com/macros/s/AKfycby1a9hLCAxEk3WTyZtl9Ha1qrZllEZbsn4MyzKo1eLwiTTdoXui_lViduDFwTmbadty/exec" 
-                   class="info-card bg-white rounded-lg p-4 shadow-md block hover:bg-orange-50"
-                   aria-label="Computer Based Test">
-                    <div class="flex items-center">
-                        <div class="bg-orange-100 rounded-md w-12 h-12 flex items-center justify-center mr-3">
-                            <span class="material-icons text-orange-500">cast_for_education</span>
-                        </div>
-                        <div>
-                            <h3 class="font-medium">Computer Based Test</h3>
-                            <p class="text-sm text-gray-600">Platform Pembelajaran dan Evaluasi Terintegrasi</p>
-                        </div>
-                    </div>
-                </a>
+            <!-- Bagian Profil -->
+            <div class="text-center mb-8 fade-in" style="animation-delay: 100ms;">
+                <img src="https://placehold.co/112x112/FFFFFF/4A5568?text=S" alt="Foto Profil" class="w-28 h-28 mx-auto mb-4 rounded-full border-4 border-white/30 shadow-lg">
+                <h1 class="text-3xl font-bold text-white tracking-tight">ICT SMAPTA</h1>
+                <p class="text-white/80 text-base font-medium">Digital Creator & Full-Stack Developer</p>
+                <p class="text-white/70 text-sm mt-3 max-w-md mx-auto">Unggul dalam Prestasi, Tangguh dalam Kompetisi dan Santun dalam Budi Pekerti.</p>
             </div>
-        </div>
 
-        <!-- Media Sosial Sekolah -->
-        <div class="mb-8">
-            <h2 class="text-lg font-semibold text-gray-700 mb-3 text-center">Media Sosial Sekolah</h2>
-            <div class="grid grid-cols-3 gap-3">
-                <a href="https://instagram.com/smaspgritakokak" target="_blank" rel="noopener noreferrer" 
-                   class="link-card bg-white rounded-lg p-3 text-center shadow-sm hover:bg-pink-50"
-                   aria-label="Instagram SMAPTA">
-                    <div class="text-pink-500 mb-1">
-                        <span class="material-icons">instagram</span>
+            <!-- Bagian Tautan Utama -->
+            <div class="space-y-4 mb-8">
+                <!-- Tautan Dapodik -->
+                <a href="https://script.google.com/macros/s/AKfycbz6hZkuRX9_9Likm5GwqjrqamopbU45kLm0IfOM4Ny14IojphZC7EMkQ2v0LRs3amo1/exec" class="link-button smooth-transition fade-in flex items-start w-full bg-white/10 rounded-xl p-4 text-left shadow-md" style="animation-delay: 200ms;">
+                    <span class="material-icons-round mr-4 mt-1 text-white/80">public</span>
+                    <div class="flex-grow">
+                        <p class="font-semibold link-text">DAPODIK Apps</p>
+                        <p class="text-xs text-white/60 link-subtext">Verifikasi & Validasi Peserta Didik</p>
                     </div>
-                    <span class="text-sm font-medium">Instagram</span>
+                    <span class="material-icons-round ml-auto text-white/50 self-center">arrow_forward</span>
                 </a>
-                <a href="https://facebook.com/smaspgritakokak" target="_blank" rel="noopener noreferrer"
-                   class="link-card bg-white rounded-lg p-3 text-center shadow-sm hover:bg-blue-50"
-                   aria-label="Facebook SMAPTA">
-                    <div class="text-blue-700 mb-1">
-                        <span class="material-icons">facebook</span>
+
+                <!-- Tautan LMS Pintar -->
+                <a href="https://script.google.com/macros/s/AKfycbyVj7RaGUBekBz3X5kaTMdDcIjkAly9BOkhb1sTkfe0vJzQCO9dBT4UHFAq9bpZlY1v/exec" class="link-button smooth-transition fade-in flex items-start w-full bg-white/10 rounded-xl p-4 text-left shadow-md" style="animation-delay: 300ms;">
+                    <span class="material-icons-round mr-4 mt-1 text-white/80">assignment</span>
+                    <div class="flex-grow">
+                        <p class="font-semibold link-text">LMS Pintar</p>
+                        <p class="text-xs text-white/60 link-subtext">Learning Management System.</p>
                     </div>
-                    <span class="text-sm font-medium">Facebook</span>
+                    <span class="material-icons-round ml-auto text-white/50 self-center">arrow_forward</span>
                 </a>
-                <a href="https://youtube.com/@smaspgritakokak" target="_blank" rel="noopener noreferrer"
-                   class="link-card bg-white rounded-lg p-3 text-center shadow-sm hover:bg-red-50"
-                   aria-label="YouTube SMAPTA">
-                    <div class="text-red-500 mb-1">
-                        <span class="material-icons">play_circle_filled</span>
+
+                <!-- Tautan Koding & Kecerdasan Artifisial -->
+                <a href="https://script.google.com/macros/s/AKfycbycX0uayjix9qX0ZeUbBi_Qr0Ch4cGP-VELx8RTftn9ctXURwIPh4Eqv2Omida1qDiC/exec" class="link-button smooth-transition fade-in flex items-start w-full bg-white/10 rounded-xl p-4 text-left shadow-md" style="animation-delay: 300ms;">
+                    <span class="material-icons-round mr-4 mt-1 text-white/80">library_books</span>
+                    <div class="flex-grow">
+                        <p class="font-semibold link-text">Koding & Kecerdasan Artifisial</p>
+                        <p class="text-xs text-white/60 link-subtext">Bahan Ajar Koding & Kecerdasan Artifisial.</p>
                     </div>
-                    <span class="text-sm font-medium">YouTube</span>
+                    <span class="material-icons-round ml-auto text-white/50 self-center">arrow_forward</span>
                 </a>
+
+                <!-- Tautan Computer Based Test -->
+                <a href="https://script.google.com/macros/s/AKfycby1a9hLCAxEk3WTyZtl9Ha1qrZllEZbsn4MyzKo1eLwiTTdoXui_lViduDFwTmbadty/exec" class="link-button smooth-transition fade-in flex items-start w-full bg-white/10 rounded-xl p-4 text-left shadow-md" style="animation-delay: 300ms;">
+                    <span class="material-icons-round mr-4 mt-1 text-white/80">cast_for_education</span>
+                    <div class="flex-grow">
+                        <p class="font-semibold link-text">Computer Based Test</p>
+                        <p class="text-xs text-white/60 link-subtext">Platform Pembelajaran dan Evaluasi Terintegrasi.</p>
+                    </div>
+                    <span class="material-icons-round ml-auto text-white/50 self-center">arrow_forward</span>
+                </a>                
             </div>
+
+            <!-- Bagian "Connect with me" -->
+            <div class="mb-8 fade-in" style="animation-delay: 400ms;">
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <a href="https://facebook.com/smaspgritakokak" class="social-button smooth-transition bg-white/10 rounded-xl p-4 text-center flex flex-col items-center justify-center">
+                        <svg class="w-6 h-6 mb-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
+                        <span class="text-xs font-semibold">Facebook</span>
+                    </a>
+                    <a href="https://instagram.com/smaspgritakokak" class="social-button smooth-transition bg-white/10 rounded-xl p-4 text-center flex flex-col items-center justify-center">
+                        <span class="material-icons-round mb-1.5">photo_camera</span>
+                        <span class="text-xs font-semibold">Instagram</span>
+                    </a>
+                    <a href="https://twitter.com/smaspgritakokak" class="social-button smooth-transition bg-white/10 rounded-xl p-4 text-center flex flex-col items-center justify-center">
+                        <svg class="w-6 h-6 mb-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" /></svg>
+                        <span class="text-xs font-semibold">Twitter</span>
+                    </a>
+                    <a href="https://smapgritakokak.sch.id" class="social-button smooth-transition bg-white/10 rounded-xl p-4 text-center flex flex-col items-center justify-center">
+                        <span class="material-icons-round mb-1.5">business_center</span>
+                        <span class="text-xs font-semibold">WebSite</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="text-center fade-in" style="animation-delay: 600ms;">
+                <p class="text-white/60 text-xs font-mono">© 2025 SMA PGRI Takokak • Made with <span class="text-red-400">❤️</span> in Cianjur</p>
+                <p class="text-white/50 text-xs font-mono mt-1">&lt;/&gt; Powered by creativity</p>
+            </div>
+
         </div>
     </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white text-center py-4">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-center space-x-4 mb-3">
-                <a href="#" class="text-gray-300 hover:text-white transition-colors" aria-label="Kebijakan Privasi">
-                    <span class="material-icons">privacy_tip</span>
-                </a>
-                <a href="#" class="text-gray-300 hover:text-white transition-colors" aria-label="Bantuan">
-                    <span class="material-icons">help</span>
-                </a>
-                <a href="#" class="text-gray-300 hover:text-white transition-colors" aria-label="Tentang Kami">
-                    <span class="material-icons">info</span>
-                </a>
-            </div>
-            <p class="text-sm">© 2025 SMAPTA. All rights reserved.</p>
-            <p class="text-xs mt-1 text-gray-400">Jl. Pahlawan No. 5, Kab. Cianjur | Telp: (0266) 6482212</p>
-            <p class="text-xs mt-1 text-gray-400">Email: info@smapta.sch.id</p>
-        </div>
-    </footer>
+    
 </body>
 </html>
